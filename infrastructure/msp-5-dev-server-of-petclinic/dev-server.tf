@@ -12,7 +12,7 @@ resource "aws_launch_template" "PetclinicServerLT" {
   image_id = var.ami
   instance_type = var.instance_type
   key_name = var.mykey
-  vpc_security_group_ids = [aws_security_group.dev-server-sg.id]
+  vpc_security_group_ids = [aws_security_group.dev-server-sg-muco.id]
   user_data = filebase64("petclinicserver-userdata.sh")
 }
 
@@ -26,7 +26,7 @@ resource "aws_instance" "PetclinicServer" {
   }
 }
 
-resource "aws_security_group" "dev-server-sg" {
+resource "aws_security_group" "dev-server-sg-muco" {
   name = var.devops_server_secgr
   tags = {
     Name = var.devops_server_secgr
