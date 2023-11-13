@@ -208,7 +208,7 @@ output kube-master-ip {
 }
 
 output worker-1-ip {
-  value       = aws_instance.mucp-worker-1.public_ip
+  value       = aws_instance.muco-worker-1.public_ip
   sensitive   = false
   description = "public ip of the worker-1"
 }
