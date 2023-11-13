@@ -185,7 +185,7 @@ resource "aws_instance" "muco-worker-1" {
     }
 }
 
-resource "aws_instance" "worker-2" {
+resource "aws_instance" "muco-worker-2" {
     ami = "ami-053b0d53c279acc90"
     instance_type = "t3a.medium"
     vpc_security_group_ids = [aws_security_group.muco-petclinic-kube-worker-sg.id, aws_security_group.muco-petclinic-mutual-sg.id]
@@ -208,7 +208,7 @@ output kube-master-ip {
 }
 
 output worker-1-ip {
-  value       = aws_instance.mucp-worker-1.public_ip
+  value       = aws_instance.muco-worker-1.public_ip
   sensitive   = false
   description = "public ip of the worker-1"
 }
