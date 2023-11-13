@@ -76,7 +76,7 @@ resource "aws_security_group" "muco-petclinic-kube-worker-sg" {
 }
 
 resource "aws_security_group" "muco-petclinic-kube-master-sg" {
-  name = var.sec-gr-k8s-master
+  name = var.muco-sec-gr-k8s-master
   vpc_id = data.aws_vpc.name.id
 
   ingress {
