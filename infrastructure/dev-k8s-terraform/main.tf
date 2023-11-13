@@ -2,16 +2,16 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-variable "sec-gr-mutual" {
-  default = "petclinic-k8s-mutual-sec-group"
+variable "muco-sec-gr-mutual" {
+  default = "muco-petclinic-k8s-mutual-sec-group"
 }
 
-variable "sec-gr-k8s-master" {
-  default = "petclinic-k8s-master-sec-group"
+variable "muco-sec-gr-k8s-master" {
+  default = "muco-petclinic-k8s-master-sec-group"
 }
 
-variable "sec-gr-k8s-worker" {
-  default = "petclinic-k8s-worker-sec-group"
+variable "muco-sec-gr-k8s-worker" {
+  default = "muco-petclinic-k8s-worker-sec-group"
 }
 
 data "aws_vpc" "name" {
@@ -19,7 +19,7 @@ data "aws_vpc" "name" {
 }
 
 resource "aws_security_group" "muco-petclinic-mutual-sg" {
-  name = var.sec-gr-mutual
+  name = var.muco-sec-gr-mutual
   vpc_id = data.aws_vpc.name.id
 
   ingress {
@@ -46,7 +46,7 @@ resource "aws_security_group" "muco-petclinic-mutual-sg" {
 }
 
 resource "aws_security_group" "muco-petclinic-kube-worker-sg" {
-  name = var.sec-gr-k8s-worker
+  name = var.muco-sec-gr-k8s-worker
   vpc_id = data.aws_vpc.name.id
 
 
